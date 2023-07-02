@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pomodoro timer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="box" id="bounding_box">
+        <button class="button" id="session" onclick="switchSession()">Session</button>
+        <div class="box" id="timer">45:00</div>
+        <div class="box" id="controls">
+            <button class="button" id="start" onclick="startTimer()">Start</button>
+            <button class="button" id="stop" onclick ="stopTimer()">Stop</button>
+            <button class="button" id="settings">Settings</button>
+            <button class="button" id="themes">Themes</button>
+        </div>
+    </div>
+
+</body>
+
+<script src="./script.js"></script>
+
+</html>
