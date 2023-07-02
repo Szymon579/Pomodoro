@@ -11,15 +11,34 @@
 
 <body>
     <div class="box" id="bounding_box">
+        <!-- Settings popup -->
+        <div class="popup" id="outer_popup">
+            <div class="popup" id="settings_popup">
+                
+                <div class="popup_item" id="session_time">Session time: 45:00</div>
+                <div class="popup_item">
+                    <input class="slider" id="session_slider" type="range" min="1" max="60" value="45" oninput="sessionSlider()">
+                </div>   
+                <div class="popup_item" id="break_time">Break time: 15:00</div>
+                <div class="popup_item">
+                    <input class="slider" id="break_slider" type="range" min="1" max="60" value="15" oninput="breakSlider()">
+                </div>
+                <div class="button" id="close_settings" onclick="closePopup()">Back</div>
+            </div>
+        </div>
+        
+        <!-- Timer and buttons -->
         <button class="button" id="session" onclick="switchSession()">Session</button>
         <div class="box" id="timer">45:00</div>
         <div class="box" id="controls">
             <button class="button" id="start" onclick="startTimer()">Start</button>
             <button class="button" id="stop" onclick ="stopTimer()">Stop</button>
-            <button class="button" id="settings">Settings</button>
-            <button class="button" id="themes">Themes</button>
+            <button class="button" id="reset" onclick="resetTimes(2700, 900)">Reset</button>
+            <button class="button" id="settings" onclick="settingsPopup()">Settings</button>
         </div>
     </div>
+
+    
 
 </body>
 

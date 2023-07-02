@@ -1,20 +1,19 @@
-:root{
+:root {
     --bg-color: #222831;
     --clock-color: #64B1B7;
     --secondary-color: #ffe4c4;
 }
 
-body{
+body {
     margin: 0px;
     background-color: var(--bg-color);
 }
 
-.box{  
+.box {  
     border: 0px solid;
 }
 
-.button{
-    
+.button {  
     border: 2px solid;
     border-radius: 15px ;
     margin: 14px 14px;
@@ -25,20 +24,19 @@ body{
     cursor: pointer;
     justify-content: center;
     align-items: center; 
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-family: 'Times New Roman', serif;
 }
 
-#bounding_box{
+#bounding_box {
     position: relative;
     color: greenyellow;
     width: 50vw;
     height: 80vh;
-    left: 50%;
-    transform: translate(-50%, 10%);
+    transform: translate(50%, 10%);
 }
 
-#session{
+#session {
     width: 97%;    /* TODO !!!!!!!!! */
     height: 15%;
     border: 2px solid;
@@ -54,7 +52,7 @@ body{
     font-size: 3vw;
 }
 
-#timer{
+#timer {
     width: 100%;
     height: 50%;
     color: var(--clock-color);
@@ -65,7 +63,7 @@ body{
     font-size: 20vw;
 }
 
-#controls{
+#controls {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
@@ -76,5 +74,69 @@ body{
 
 }
 
+.popup {
+    visibility: hidden; /* hidded */
+    position: absolute;
+    color: yellow;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-color);
+    z-index: 1;
+}
+
+#settings_popup {
+    visibility: hidden; /* hidded */
+    position: absolute;
+    border: 2px solid;
+    border-radius: 15px ;
+    color: var(--secondary-color);
+    background-color: var(--bg-color);
+    width: 50%;
+    height: 70%;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.popup_item {
+    border: 2px solid;
+    border-radius: 15px ;
+    margin: 14px 14px;
+    display: flex;
+
+    color:var(--secondary-color);
+    background-color: transparent;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center; 
+    font-size: 2.5vw;
+    font-family: 'Times New Roman', serif;
+}
+
+
+
+#set_session_time {
+    border: 0px solid;
+}
+
+#set_break_time {
+    border: 0px solid;
+}
+
+#close_settings {
+    border: 2px solid;
+    font-size: 2.5vw;
+}
+
+.slider {
+    width: 90%;
+    height: 5vh;
+    background: #d3d3d3;
+    outline: none;
+  }
 
 
