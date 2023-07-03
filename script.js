@@ -1,8 +1,8 @@
-var session_time = 2700;
-var break_time = 900;
+var session_time = 17;
+var break_time = 9;
 
-var rem_session_time = 2700;
-var rem_break_time = 900;
+var rem_session_time = session_time;
+var rem_break_time = break_time;
 
 var timer_running = false;
 var pomodoro_active = true;
@@ -59,12 +59,17 @@ function handleTimer() {
 
     time_left--;
 
-    if(time_left <= 0) {
+    timer_elem.innerHTML = formatTime(time_left); 
+    if(time_left < 0) {
         clearInterval(interval);
         timer_running = false;
+        switchSession();
+        resetTimes();
+        startTimer();
+        return;
     }
 
-    timer_elem.innerHTML = formatTime(time_left); 
+    
 
     if(pomodoro_active) {
         rem_session_time = time_left;
@@ -88,13 +93,15 @@ function resetTimes() {
     clearInterval(interval);
     timer_running = false;
 
+    rem_session_time = session_time;
+    rem_break_time = break_time;
+
     if(pomodoro_active) {
         timer_elem.innerHTML = formatTime(session_time);
     } else {
         timer_elem.innerHTML = formatTime(break_time);
     }
 }
-
 
 function settingsPopup() {
     clearInterval(interval);
@@ -146,7 +153,7 @@ function bgColorSlider() {
     let num = parseInt(slider.value);
     let hexString = "#" + decimalToHex(num, 6).toUpperCase();
     
-    output.innerHTML = hexString;
+    //output.innerHTML = hexString;
     document.documentElement.style.setProperty('--bg-color', hexString);
 }
 
@@ -157,7 +164,7 @@ function clockColorSlider() {
     let num = parseInt(slider.value);
     let hexString = "#" + decimalToHex(num, 6).toUpperCase();
     
-    output.innerHTML = hexString;
+    //output.innerHTML = hexString;
     document.documentElement.style.setProperty('--clock-color', hexString);
 }
 
@@ -168,7 +175,7 @@ function accentColorSlider() {
     let num = parseInt(slider.value);
     let hexString = "#" + decimalToHex(num, 6).toUpperCase();
     
-    output.innerHTML = hexString;
+    //output.innerHTML = hexString;
     document.documentElement.style.setProperty('--accent-color', hexString);
 }
 
