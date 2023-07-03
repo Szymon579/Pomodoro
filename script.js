@@ -1,5 +1,5 @@
-var session_time = 17;
-var break_time = 9;
+var session_time = 2700;
+var break_time = 900;
 
 var rem_session_time = session_time;
 var rem_break_time = break_time;
