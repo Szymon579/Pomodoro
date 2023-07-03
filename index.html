@@ -23,6 +23,17 @@
                 <div class="popup_item">
                     <input class="slider" id="break_slider" type="range" min="1" max="60" value="15" oninput="breakSlider()">
                 </div>
+                <div class="popup_item" id="colors">Color</div>
+                <div class="popup_item" id="bg_slider_div">
+                    <input class="slider" id="bg_color_slider" type="range" min="0" max="16777215" value="15" oninput="bgColorSlider()">
+                </div>
+                <div class="popup_item" id="clock_slider_div">
+                    <input class="slider" id="clock_color_slider" type="range" min="0" max="16777215" value="15" oninput="clockColorSlider()">
+                </div>
+                <div class="popup_item" id="accent_slider_div">
+                    <input class="slider" id="accent_color_slider" type="range" min="0" max="16777215" value="15" oninput="accentColorSlider()">
+                </div>
+                
                 <div class="button" id="close_settings" onclick="closePopup()">Back</div>
             </div>
         </div>
@@ -33,7 +44,7 @@
         <div class="box" id="controls">
             <button class="button" id="start" onclick="startTimer()">Start</button>
             <button class="button" id="stop" onclick ="stopTimer()">Stop</button>
-            <button class="button" id="reset" onclick="resetTimes(2700, 900)">Reset</button>
+            <button class="button" id="reset" onclick="resetTimes()">Reset</button>
             <button class="button" id="settings" onclick="settingsPopup()">Settings</button>
         </div>
     </div>
