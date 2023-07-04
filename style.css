@@ -1,6 +1,5 @@
 :root {
     --bg-color: #222831;
-    /* --bg-color: #222831; */
     --clock-color: #64B1B7;
     --accent-color: #ffe4c4;
 }
@@ -35,16 +34,18 @@ body {
     width: 50vw;
     height: 80vh;
     transform: translate(50%, 10%);
+    margin: 0;
 }
 
 #session {
-    width: 97%;    /* TODO !!!!!!!!! */
+    position: relative;
+    width: 97%;
     height: 15%;
     border: 2px solid;
     border-radius: 15px ;
     margin: 14px;
     display: flex;
-
+    
     color:var(--accent-color);
     background-color: transparent;
 
@@ -57,7 +58,7 @@ body {
     width: 100%;
     height: 50%;
     color: var(--clock-color);
-    
+
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -71,12 +72,11 @@ body {
     width: 100%;
     height: 30%;
     color: rgb(213, 27, 169);
-    
 
 }
 
 .popup {
-    visibility: hidden; /* hidded */
+    visibility: hidden;
     position: absolute;
     color: yellow;
     width: 100%;
@@ -89,14 +89,14 @@ body {
 }
 
 #settings_popup {
-    visibility: hidden; /* hidded */
+    visibility: hidden;
     position: absolute;
     border: 2px solid;
     border-radius: 15px ;
     color: var(--accent-color);
     background-color: var(--bg-color);
     width: 50%;
-    height: 90%;
+    height: fit-content;
     left: 50%;
     top:50%;
     transform: translate(-50%, -50%);
@@ -118,16 +118,6 @@ body {
     font-family: 'Times New Roman', serif;
 }
 
-
-
-#set_session_time {
-    border: 0px solid;
-}
-
-#set_break_time {
-    border: 0px solid;
-}
-
 #bg_slider_div {
     background-color: var(--bg-color);
 }
@@ -139,7 +129,6 @@ body {
 #accent_slider_div {
     background-color: var(--accent-color);
 }
-
 
 #close_settings {
     border: 2px solid;

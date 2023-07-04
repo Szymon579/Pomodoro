@@ -9,6 +9,9 @@ var pomodoro_active = true;
 
 var interval;
 
+// https://mixkit.co/free-sound-effects/notification/
+var audio = new Audio("sound.wav");
+
 document.getElementById("session_slider").value = session_time / 60;
 document.getElementById("session_time").innerHTML = "Session time: " + formatTime(session_time);
 
@@ -63,20 +66,18 @@ function handleTimer() {
     if(time_left < 0) {
         clearInterval(interval);
         timer_running = false;
+        audio.play();
         switchSession();
         resetTimes();
         startTimer();
         return;
     }
 
-    
-
     if(pomodoro_active) {
         rem_session_time = time_left;
     } else {
         rem_break_time = time_left;
-    }
-    
+    }    
 }
 
 function formatTime(time) {
@@ -119,18 +120,15 @@ function closePopup() {
         timer_elem.innerHTML = formatTime(session_time);
     if(!pomodoro_active)
         timer_elem.innerHTML = formatTime(break_time);
-
 }
-
-
 
 function sessionSlider() {
     let slider = document.getElementById("session_slider");
     let output = document.getElementById("session_time");
     
-    slider.value = slider.value < 10 ? '0' + slider.value : slider.value;
-    output.innerHTML = "Session time: " + slider.value + ":00";
     session_time = slider.value * 60;
+    output.innerHTML = "Session time: " + formatTime(session_time);
+    
     rem_session_time = session_time;
     timer_elem.innerHTML = formatTime(rem_session_time);
 }
@@ -139,9 +137,9 @@ function breakSlider() {
     let slider = document.getElementById("break_slider");
     let output = document.getElementById("break_time");
     
-    slider.value = slider.value < 10 ? '0' + slider.value : slider.value;
-    output.innerHTML = "Break time: " + slider.value + ":00";
     break_time = slider.value * 60;
+    output.innerHTML = "Break time: " + formatTime(break_time);
+    
     rem_break_time = break_time;
     timer_elem.innerHTML = formatTime(rem_break_time);
 }
@@ -152,34 +150,27 @@ function bgColorSlider() {
     
     let num = parseInt(slider.value);
     let hexString = "#" + decimalToHex(num, 6).toUpperCase();
-    
-    //output.innerHTML = hexString;
+
     document.documentElement.style.setProperty('--bg-color', hexString);
 }
 
 function clockColorSlider() {
     let slider = document.getElementById("clock_color_slider");
-    let output = document.getElementById("colors");
     
     let num = parseInt(slider.value);
     let hexString = "#" + decimalToHex(num, 6).toUpperCase();
     
-    //output.innerHTML = hexString;
     document.documentElement.style.setProperty('--clock-color', hexString);
 }
 
 function accentColorSlider() {
     let slider = document.getElementById("accent_color_slider");
-    let output = document.getElementById("colors");
     
     let num = parseInt(slider.value);
     let hexString = "#" + decimalToHex(num, 6).toUpperCase();
     
-    //output.innerHTML = hexString;
     document.documentElement.style.setProperty('--accent-color', hexString);
 }
-
-
 
 function decimalToHex(d, padding) {
     var hex = Number(d).toString(16);
